@@ -8,16 +8,17 @@ import { grabTopCard } from './Backend/manageGame';
 import { useState } from 'react';
 
 var shuffledDeck = []
-
+var toSwitch = []
 
 function App() {
+  // Players hand
   const [a_hand, setHand] = useState(() => {
     return []
   });
-  const [playOn, setPlayOn] = useState(true);
-  const [score, setScore] = useState(0);
-  const [start,setStart] = useState(false);
-  const [topCard,setTopCard] = useState(0);
+  const [playOn, setPlayOn] = useState(true); // Used to track how many cards face up 
+  const [score, setScore] = useState(0); // Keeps track of scoring
+  const [start,setStart] = useState(false); // Allows app to know when to start game
+  const [topCard,setTopCard] = useState(0); // holds top card
 
   // Resets a shuffled deck and allows new game to be played
   const NewGame = () => {
@@ -26,7 +27,7 @@ function App() {
     setTopCard(grabTopCard(shuffledDeck));
     setPlayOn(true);
     setStart(true);
-    console.log(shuffledDeck);
+    console.log(topCard);
   }
 
 
@@ -47,7 +48,9 @@ function App() {
             <SingleCard key ={card.id} 
             card = {card} 
             the_player = {a_hand}
-            setPlayOn = {setPlayOn}/>
+            setPlayOn = {setPlayOn}
+            toSwitch = {toSwitch}
+            />
         ))
         ) : (
           <RoundResult

@@ -1,0 +1,16 @@
+JUNE 3RD 2022
+
+WORK FLOW :
+Worked on grabbing cards for switching, 
+
+1. Single card component has functionality for choosing a faceup card for switching. 
+Also has a catch to see if two cards are in the hand and if so clears my cards to 
+switch array. Need to build error throw for this however 
+
+2.switching function lives in manageGame file called chooseSwitch.
+
+TO - DO:
+1. Need to build functionality for switching topCard and also choosing a card from deck
+pile for switching
+
+2. Actively switch a card from deck or topcard with card choosen in hand. 

@@ -1,4 +1,33 @@
 
+function chooseSwitch(to_add, the_player, toSwitch){
+
+  //Makes sure user has a card they want to switch
+  if (to_add.length === 0) {return}
+
+  if (toSwitch.length === 0){
+    toSwitch.push(to_add)
+    console.log(toSwitch)
+    return
+  }
+  else{
+    toSwitch.push(to_add)
+    console.log(toSwitch)
+    var decide = 0
+    for (let i =0; i < the_player.length;i++){
+      if (the_player[i].src === toSwitch[0].src || the_player[i].src === toSwitch[1].src){
+        ++decide
+      }
+    if (decide === 2){
+      console.log("INVALID SWAP")
+      while (toSwitch.length !== 0){ toSwitch.pop()}
+    }
+    console.log(toSwitch)
+    }
+
+  }
+
+}
+
 
 function grabTopCard(theDeck) {
   return theDeck.pop()
@@ -6,7 +35,6 @@ function grabTopCard(theDeck) {
 
 
 function calcScore(a_hand) {
-    console.log(a_hand)
     var tot = 0;
     for (let i = 0; i < 6; i++){
       //Check for 1st card
@@ -58,4 +86,4 @@ function calcScore(a_hand) {
     return tot;
   }
 
-  export { calcScore, grabTopCard}
+  export { calcScore, grabTopCard, chooseSwitch}
