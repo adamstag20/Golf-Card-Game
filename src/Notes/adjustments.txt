@@ -11,6 +11,21 @@ switch array. Need to build error throw for this however
 
 TO - DO:
 1. Need to build functionality for switching topCard and also choosing a card from deck
-pile for switching
+pile for switching COMPLETED
 
-2. Actively switch a card from deck or topcard with card choosen in hand. 
+2. Actively switch a card from deck or topcard with card choosen in hand.  COMPLETED
+-----------------------------------------------------------------------------------------
+JUNE 10TH 2022
+
+WORK FLOW: 
+Got swapping between deck and hand done. Scoring works with swaps. Had to switch only src and val
+for players card because it would always render face down after swap. Something to look at later...
+
+TO - DO:
+1. Pop up to give user option to use card they just drawed.
+   - have it be added to toSwap array or be thrown back on topcard pile.
+   - clean easy to use design
+--------------------------------------------------------------------------------------------
+
+
+

@@ -20,7 +20,10 @@ function App() {
   const [start,setStart] = useState(false); // Allows app to know when to start game
   const [topCard,setTopCard] = useState(0); // holds top card
 
+  //////////////////////////////////////////////////////////////    
   // Resets a shuffled deck and allows new game to be played
+  //////////////////////////////////////////////////////////////    
+
   const NewGame = () => {
     shuffledDeck = shuffleDeck();
     setHand(createHand(shuffledDeck));
@@ -31,6 +34,10 @@ function App() {
   }
 
 
+  //////////////////////////////////////////////////////////////    
+  // Display stuff
+  //////////////////////////////////////////////////////////////    
+
   return (
     <div className="App">
        <h1>Golf Card Game</h1>
@@ -39,6 +46,9 @@ function App() {
       <DeckPiles
       theDeck = {shuffledDeck}
       freshTop = {topCard}
+      setTop = {setTopCard}
+      toSwitch = {toSwitch}
+      player = {a_hand}
       />
       ) : ( <div></div>)
       }
@@ -50,6 +60,8 @@ function App() {
             the_player = {a_hand}
             setPlayOn = {setPlayOn}
             toSwitch = {toSwitch}
+            topCard = {topCard}
+            setTop = {setTopCard}
             />
         ))
         ) : (
