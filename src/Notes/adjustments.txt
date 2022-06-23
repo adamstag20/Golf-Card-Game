@@ -26,6 +26,21 @@ TO - DO:
    - have it be added to toSwap array or be thrown back on topcard pile.
    - clean easy to use design
 --------------------------------------------------------------------------------------------
+JUNE 23RD 2022
+
+WORK FLOW:
+Deck pile selection working with functionality of discard and use working well.
+May need to implement a better visual for user to know what card is selected. Thinking about
+doing highlighted border when a card is selected in the hand and for the deck pile choice.
+I am passing a lot of arguments into my components, be nice to come up with a solution to
+clean that up but thats more for style purposes.
+
+TO-DO : 
+1. Starting a new round and keeping track of previous scores
+   - roundResult component as a pop up that shows scores then gives user option to
+     quit playing or play next round. 
+   - Maybe do a score board on the right side of screen showing round scores and totals? 
+
 
 
 

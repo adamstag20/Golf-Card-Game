@@ -1,13 +1,23 @@
 import React, { useState } from 'react';
 import '../App.css';
 import {grabTopCard, chooseSwitch} from '../Backend/manageGame'
+import ViewPopUp from './viewPopUp';
 
 ////////////////////////////////////////////////////////////////////////////////////
 // Top display component of remaining deck and deck pile to choose from
 ////////////////////////////////////////////////////////////////////////////////////
 
 function DeckPiles({theDeck,freshTop,setTop,toSwitch,player}) {
+
+  const [openToggle,setToggle] = useState(false)
+  const [viewTop, setViewTop] = useState(theDeck[theDeck.length-1])
   
+  const toggleCard = () => {
+    setToggle(!openToggle)
+    console.log(viewTop)
+
+  }
+
   ////////////////////////////////////////////////////////////////////////////////////
   // Pull new Top card
   ////////////////////////////////////////////////////////////////////////////////////
@@ -27,7 +37,15 @@ function DeckPiles({theDeck,freshTop,setTop,toSwitch,player}) {
 
   return (
     <div className='deck-pile'>
-        <img onClick = {changeTopCard} src = {require("../Classic/back.png")} alt ="deck-back"/>
+        <img onClick = {toggleCard} src = {require("../Classic/back.png")} alt ="deck-back"/>
+        { openToggle && <ViewPopUp
+        potentialCard={viewTop}
+        setPot = {setViewTop}
+        setTop = {setTop}
+        setToggle = {setToggle}
+        theDeck = {theDeck}
+        toSwitch = {toSwitch}/>}
+
         <img onClick = {setPlace} src = {require(`../Classic/${freshTop.src}.png`)} alt ="deck-back"/>
     </div>
   )
