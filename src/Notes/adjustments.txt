@@ -41,6 +41,16 @@ TO-DO :
      quit playing or play next round. 
    - Maybe do a score board on the right side of screen showing round scores and totals? 
 
+----------------------------------------------------------------------------------------------
+AUGUST 18TH 2023
+
+Fixed card selecting bug in users hand. 
+
+Need to add card highlighting when selected and put restrictions on selecting a card that is face down
+when a user chooses to use a card in the deckpile also need to be able to unselect a card. 
+
+
+
 
 
 
