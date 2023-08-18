@@ -9,7 +9,7 @@ import { chooseSwitch } from '../Backend/manageGame';
 function SingleCard({card, the_player, setPlayOn, toSwitch, topCard,setTop}) {
 
   const [faceUp, setFaceUp] = useState(1);
-  const [choose,setChoose] = useState([]);
+  //const [choose,setChoose] = useState([]);
   
   ////////////////////////////////////////////////////////////////////////////////////
   // Puts card face up when clicked
@@ -51,8 +51,8 @@ function SingleCard({card, the_player, setPlayOn, toSwitch, topCard,setTop}) {
   ////////////////////////////////////////////////////////////////////////////////////
 
   const setPlace = () => {
-    setChoose(card)
-    const pos =chooseSwitch(choose, the_player, toSwitch,topCard, setTop)
+    //setChoose(card)
+    const pos =chooseSwitch(card, the_player, toSwitch,topCard, setTop)
     // Changes card to face up once switched with top card
     if ( pos < 6){Change()}
   }

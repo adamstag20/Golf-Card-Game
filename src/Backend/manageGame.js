@@ -7,11 +7,12 @@ function chooseSwitch(to_add, the_player, toSwitch, topCard,setTop){
   //Makes sure user has a card they want to switch
   if (to_add.length === 0) {return 10}
 
+  // more than 2 cards selected
   if (toSwitch.length > 2){
       while (toSwitch.length !== 0){ toSwitch.pop()}
       return 10
   }
-
+  // No cards -> add selected
   if (toSwitch.length === 0){
     toSwitch.push(to_add)
     console.log(toSwitch)
@@ -22,8 +23,10 @@ function chooseSwitch(to_add, the_player, toSwitch, topCard,setTop){
     console.log(toSwitch)
     var decide = 0
     for (let i =0; i < the_player.length;i++){
-      if (the_player[i].src === toSwitch[0].src || the_player[i].src === toSwitch[1].src){
-        ++decide
+      for (let j =0; j < toSwitch.length;j++){
+        if (the_player[i].src === toSwitch[j].src){
+          decide++
+        }
       }
     }
     }
