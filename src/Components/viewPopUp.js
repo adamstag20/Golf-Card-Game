@@ -1,7 +1,7 @@
 import React from 'react'
 import '../PopUp.css'
 
-function ViewPopUp({potentialCard,setPot,setTop,setToggle,theDeck,toSwitch}) {
+function ViewPopUp({potentialCard,setPot,setTop,setToggle,theDeck,toSwitch,highlight}) {
 
   ////////////////////////////////////////////////////////////////////////////
   // Put potential card that was drawn from deck to the discard pile
@@ -25,6 +25,8 @@ function ViewPopUp({potentialCard,setPot,setTop,setToggle,theDeck,toSwitch}) {
     theDeck.pop()
     setPot(theDeck[theDeck.length-1])
     setToggle(false)
+    highlight(true)
+    console.log("Here!!")
     console.log(theDeck.length)
   }
   return (

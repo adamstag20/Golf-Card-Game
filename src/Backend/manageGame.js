@@ -45,6 +45,8 @@ function chooseSwitch(to_add, the_player, toSwitch, topCard,setTop){
 function doSwitch(player, toSwitch, setTop, topCard){
 
       var pos = 0
+
+      // Top Card is first card selected
       if (toSwitch[0].src === topCard.src){
         for (let i = 0; i < 6; i++){
           if (player[i].src === toSwitch[1].src){ pos = i}
@@ -56,6 +58,7 @@ function doSwitch(player, toSwitch, setTop, topCard){
         while (toSwitch.length !== 0){ toSwitch.pop()}
         return pos
       }
+      // Hand card first selected
       else {
         for (let i = 0; i < 6; i++){
           if (player[i].src === toSwitch[0].src){ pos = i}

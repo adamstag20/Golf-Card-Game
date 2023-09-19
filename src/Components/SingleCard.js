@@ -6,7 +6,7 @@ import { chooseSwitch } from '../Backend/manageGame';
 // Single Card Component implemented here used in App.js
 ////////////////////////////////////////////////////////////////////////////////////
 
-function SingleCard({card, the_player, setPlayOn, toSwitch, topCard,setTop}) {
+function SingleCard({card, the_player, setPlayOn, toSwitch, topCard,setTop,setDeckHighlight}) {
 
   const [faceUp, setFaceUp] = useState(1);
   //const [choose,setChoose] = useState([]);
@@ -53,6 +53,11 @@ function SingleCard({card, the_player, setPlayOn, toSwitch, topCard,setTop}) {
   const setPlace = () => {
     //setChoose(card)
     const pos =chooseSwitch(card, the_player, toSwitch,topCard, setTop)
+    
+    if ( pos != 10){
+      console.log("DOING IT RIGHT")
+      setDeckHighlight(false)
+    }
     // Changes card to face up once switched with top card
     if ( pos < 6){Change()}
   }

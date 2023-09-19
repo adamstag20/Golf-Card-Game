@@ -20,6 +20,7 @@ button {
   width: 15%;
   height: 15%;
   margin: 20px;
+  
 }
 .card-grid {
   margin-top: 80px;
@@ -37,5 +38,10 @@ button {
 .back{
   width: 40%;
   height: 40%;
+  border: 10px;
   cursor: pointer;
+}
+
+.card-highlight {
+  border: 5px solid yellow;
 }

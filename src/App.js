@@ -19,6 +19,8 @@ function App() {
   const [score, setScore] = useState(0); // Keeps track of scoring
   const [start, setStart] = useState(false); // Allows app to know when to start game
   const [topCard, setTopCard] = useState(0); // holds top card
+  const [cardHighlight, setCardHighlight] = useState(false)
+  const [deckHighlight, setDeckHighlight] = useState(false)
 
   //////////////////////////////////////////////////////////////
   // Resets a shuffled deck and allows new game to be played
@@ -48,6 +50,8 @@ function App() {
           setTop={setTopCard}
           toSwitch={toSwitch}
           player={a_hand}
+          deckHighlight={deckHighlight}
+          setDeckHighlight={setDeckHighlight}
         />
       ) : (
         <div></div>
@@ -63,6 +67,7 @@ function App() {
               toSwitch={toSwitch}
               topCard={topCard}
               setTop={setTopCard}
+              setDeckHighlight={setDeckHighlight}
             />
           ))
         ) : (
