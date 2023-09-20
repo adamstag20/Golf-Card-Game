@@ -1,42 +1,58 @@
-import React, { useState, useEffect  } from 'react'
-import { chooseSwitch } from '../Backend/manageGame';
-
+import React, { useState, useEffect } from "react";
+import { chooseSwitch } from "../Backend/manageGame";
+import "../App.css";
 
 ////////////////////////////////////////////////////////////////////////////////////
 // Single Card Component implemented here used in App.js
 ////////////////////////////////////////////////////////////////////////////////////
 
-function SingleCard({card, the_player, setPlayOn, toSwitch, topCard,setTop,setDeckHighlight}) {
-
+function SingleCard({
+  card,
+  the_player,
+  setPlayOn,
+  toSwitch,
+  topCard,
+  setTop,
+  setDeckHighlight,
+  setCardHighlight,
+  cardHighlight,
+}) {
   const [faceUp, setFaceUp] = useState(1);
+  const [highlight, setHighlight] = useState(false)
   //const [choose,setChoose] = useState([]);
-  
+
   ////////////////////////////////////////////////////////////////////////////////////
   // Puts card face up when clicked
   ////////////////////////////////////////////////////////////////////////////////////
 
   const Change = () => {
-        setFaceUp(0);
-        card.face = 1;
-        checkFaces();
-        return card;
-  }
+    setFaceUp(0);
+    card.face = 1;
+    checkFaces();
+    return card;
+  };
+  useEffect(() => {
 
+    console.log("rendering...")
+      if (cardHighlight != true){
+        setHighlight(false)
+      }
+  }, [cardHighlight])
   ////////////////////////////////////////////////////////////////////////////////////
-  //Checks to see what cards face up 
+  //Checks to see what cards face up
   ////////////////////////////////////////////////////////////////////////////////////
 
   const checkFaces = () => {
     var counter = 0;
-    for (let i = 0; i < 6; i ++){
-        if (the_player[i].face === 1) {
-            counter += 1;
-        }
+    for (let i = 0; i < 6; i++) {
+      if (the_player[i].face === 1) {
+        counter += 1;
+      }
     }
-    if (counter === 6){
+    if (counter === 6) {
       setTimeout(createDelay, "4000");
     }
-  }
+  };
 
   ////////////////////////////////////////////////////////////////////////////////////
   // Delays game then ends round of game
@@ -44,7 +60,7 @@ function SingleCard({card, the_player, setPlayOn, toSwitch, topCard,setTop,setDe
 
   const createDelay = () => {
     setPlayOn(false);
-  }
+  };
 
   ////////////////////////////////////////////////////////////////////////////////////
   // Responsible for adding card to be swapped and changing faceUp value if swapped
@@ -52,29 +68,48 @@ function SingleCard({card, the_player, setPlayOn, toSwitch, topCard,setTop,setDe
 
   const setPlace = () => {
     //setChoose(card)
-    const pos =chooseSwitch(card, the_player, toSwitch,topCard, setTop)
-    
-    if ( pos != 10){
-      console.log("DOING IT RIGHT")
-      setDeckHighlight(false)
+    const pos = chooseSwitch(card, the_player, toSwitch, topCard, setTop);
+
+    if (pos != 10) {
+      setDeckHighlight(false);
+      setHighlight(false)
+    } else {
+        setHighlight(true);
+        setCardHighlight(true)
     }
     // Changes card to face up once switched with top card
-    if ( pos < 6){Change()}
-  }
+    if (pos < 6) {
+      Change();
+    }
+  };
   // Display stuff
   return (
-        <div className = "card"  >
-          <div>
-          { faceUp ? (
-            <img className = "back" 
-            onClick= {Change} src = {require("../Classic/back.png")} alt = "back-card"/>
-          ) : (
-              <img  onClick = {setPlace} className = "front" src = {require(`../Classic/${card.src}.png`)} alt= "card-front"/>
-          )
-         }
-          </div>
-        </div>
-  )
+    <div className="card">
+      <div>
+        {faceUp ? (
+          <img
+            className="back"
+            onClick={Change}
+            src={require("../Classic/back.png")}
+            alt="back-card"
+          />
+        ) : !highlight ? (
+          <img
+            onClick={setPlace}
+            src={require(`../Classic/${card.src}.png`)}
+            alt="card-front"
+          />
+        ) : (
+          <img
+            onClick={setPlace}
+            src={require(`../Classic/${card.src}.png`)}
+            alt="card-front"
+            class="card-highlight"
+          />
+        )}
+      </div>
+    </div>
+  );
 }
 
-export default SingleCard
+export default SingleCard;

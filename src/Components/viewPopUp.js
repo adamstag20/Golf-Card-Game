@@ -32,7 +32,7 @@ function ViewPopUp({potentialCard,setPot,setTop,setToggle,theDeck,toSwitch,highl
   return (
     <div className='choosePopUp'>
         <div className='box'>
-        <img src = {require(`../Classic/${potentialCard.src}.png`)} alt ="potential"/>
+        <img clasName="pop-up-img" src = {require(`../Classic/${potentialCard.src}.png`)} alt ="potential"/>
           <div className= 'buttons'>
             <button onClick = {discardPot} className = 'discard'>Discard</button>
             <button onClick = {addPot} className = 'choose'>Use</button>

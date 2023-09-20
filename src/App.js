@@ -30,6 +30,7 @@ function App() {
     shuffledDeck = shuffleDeck();
     setHand(createHand(shuffledDeck));
     setTopCard(grabTopCard(shuffledDeck));
+    setDeckHighlight(false)
     setPlayOn(true);
     setStart(true);
     console.log(topCard);
@@ -52,6 +53,7 @@ function App() {
           player={a_hand}
           deckHighlight={deckHighlight}
           setDeckHighlight={setDeckHighlight}
+          setCardHighlight={setCardHighlight}
         />
       ) : (
         <div></div>
@@ -68,6 +70,8 @@ function App() {
               topCard={topCard}
               setTop={setTopCard}
               setDeckHighlight={setDeckHighlight}
+              setCardHighlight={setCardHighlight}
+              cardHighlight={cardHighlight}
             />
           ))
         ) : (

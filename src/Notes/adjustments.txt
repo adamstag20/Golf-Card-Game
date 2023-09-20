@@ -49,7 +49,15 @@ Fixed card selecting bug in users hand.
 Need to add card highlighting when selected and put restrictions on selecting a card that is face down
 when a user chooses to use a card in the deckpile also need to be able to unselect a card. 
 
+--------------------------------------------------------------------------------------------------------
 
+SEPTEMBER 18th 2023
+
+Highlighting working on selecting card from deck pile. Using useState Highlight in app and passing them
+both the DeckPiles component and SingleCard comp. Changing their states to turn off highlighting. Need to
+test it more and get it working properly.
+
+Hoping after that to set restictions in which card you can grab and also allow someone to unselect a card. 
 
 
 
