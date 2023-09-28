@@ -70,8 +70,9 @@ function SingleCard({
     //setChoose(card)
     const pos = chooseSwitch(card, the_player, toSwitch, topCard, setTop);
 
-    if (pos != 10) {
+    if (pos != 10 || pos == 5) {
       setDeckHighlight(false);
+      setCardHighlight(false)
       setHighlight(false)
     } else {
         setHighlight(true);

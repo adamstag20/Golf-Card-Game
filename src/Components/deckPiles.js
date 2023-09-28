@@ -43,6 +43,7 @@ function DeckPiles({
   const setPlace = () => {
     const change = chooseSwitch(freshTop, player, toSwitch, freshTop, setTop);
     if (change != 10) {
+
       setDeckHighlight(false);
       console.log("TRIGGER UN_HIGHLIGHT")
       setCardHighlight(false)

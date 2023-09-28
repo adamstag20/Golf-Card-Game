@@ -59,6 +59,14 @@ test it more and get it working properly.
 
 Hoping after that to set restictions in which card you can grab and also allow someone to unselect a card. 
 
+SEPTEMBER 20th 2023
 
+Got the highlighting done for single card and deck piles. useEffect in single card renders 
+anytime we trigger a change in deck pile on card flips.
 
+Need to add error handling for wrong card moves and actions happening without restriction
+which will make for buggy game mechanics. 
+
+I don't think I have added any error checking for the deck piles ALSO need to think about
+turning off highlighting when INVALID SWAP is performed. 
 

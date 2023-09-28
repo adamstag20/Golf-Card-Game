@@ -12,6 +12,11 @@ function chooseSwitch(to_add, the_player, toSwitch, topCard,setTop){
       while (toSwitch.length !== 0){ toSwitch.pop()}
       return 10
   }
+  if ( toSwitch.length == 2 && toSwitch[0].src === toSwitch[1].src){
+      while (toSwitch.length !== 0){ toSwitch.pop()}
+      console.log("Invalid Swap!!")
+      return 10;
+  }
   // No cards -> add selected
   if (toSwitch.length === 0){
     toSwitch.push(to_add)
@@ -19,11 +24,19 @@ function chooseSwitch(to_add, the_player, toSwitch, topCard,setTop){
     return 10
   }
   else{
+    
     toSwitch.push(to_add)
     console.log(toSwitch)
+    if (toSwitch[0].src === toSwitch[1].src){
+        while (toSwitch.length !== 0){ toSwitch.pop()}
+        console.log("Invalid Swap!!")
+        return 5;
+    }
     var decide = 0
     for (let i =0; i < the_player.length;i++){
       for (let j =0; j < toSwitch.length;j++){
+
+        // Check if cards to swap are both from player's hand
         if (the_player[i].src === toSwitch[j].src){
           decide++
         }
@@ -33,7 +46,7 @@ function chooseSwitch(to_add, the_player, toSwitch, topCard,setTop){
     if (decide === 2){
       console.log("INVALID SWAP")
       while (toSwitch.length !== 0){ toSwitch.pop()}
-      return 10
+      return 5
     }
     return doSwitch(the_player, toSwitch, setTop, topCard)
     }
