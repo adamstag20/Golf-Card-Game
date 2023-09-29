@@ -33,6 +33,8 @@ function App() {
     setDeckHighlight(false)
     setPlayOn(true);
     setStart(true);
+    setCardHighlight(false)
+    setDeckHighlight(false)
     console.log(topCard);
   };
 

@@ -39,13 +39,21 @@ function SingleCard({
   ////////////////////////////////////////////////////////////////////////////////////
 
   const Change = () => {
-    setFaceUp(0);
-    card.face = 1;
-    checkFaces();
+    
+    console.log("flipping card")
+    if (cardHighlight == true && faceUp == 1){
+      notify()
+    }
+    else {
+      setFaceUp(0);
+      card.face = 1;
+      checkFaces();
+
+    }
     return card;
   };
+
   useEffect(() => {
-    console.log("rendering...");
     if (cardHighlight != true) {
       setHighlight(false);
     }

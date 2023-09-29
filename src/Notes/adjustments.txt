@@ -58,7 +58,7 @@ both the DeckPiles component and SingleCard comp. Changing their states to turn 
 test it more and get it working properly.
 
 Hoping after that to set restictions in which card you can grab and also allow someone to unselect a card. 
-
+----------------------------------------------------------------------------------------------------
 SEPTEMBER 20th 2023
 
 Got the highlighting done for single card and deck piles. useEffect in single card renders 
@@ -70,3 +70,22 @@ which will make for buggy game mechanics.
 I don't think I have added any error checking for the deck piles ALSO need to think about
 turning off highlighting when INVALID SWAP is performed. 
 
+-------------------------------------------------------------------------------------------
+SEPTEMBER 28th 2023
+
+added error checking with toast functions for invalid card swaps. They work well, but Rachel
+made point about not allowing them to do invalid moves at all. Will probably come back to this
+idea, I have just a few smaller game mechanic things to do.
+
+Need to fix when a user selects a flipped card and then draws from top of deck, this does not
+work currently. 
+
+Need to add error handling for grabbing top card then drawing a card from pile, this is allowed
+and needs to be removed.
+
+Need to fix when a person selects a card then draws from pile and discards this should be a loss
+of turn, also need to unhighlight cards when this move is made. 
+
+After this I want to work on adding multiple players and doing turns. Excited that I am making 
+some good progress. Lots to do but very rewarding getting farther especially after taking a 
+break from the project. 
