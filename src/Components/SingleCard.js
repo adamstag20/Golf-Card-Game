@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { chooseSwitch } from "../Backend/manageGame";
 import "../App.css";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 ////////////////////////////////////////////////////////////////////////////////////
 // Single Card Component implemented here used in App.js
 ////////////////////////////////////////////////////////////////////////////////////
@@ -18,9 +20,20 @@ function SingleCard({
   cardHighlight,
 }) {
   const [faceUp, setFaceUp] = useState(1);
-  const [highlight, setHighlight] = useState(false)
+  const [highlight, setHighlight] = useState(false);
   //const [choose,setChoose] = useState([]);
 
+  const notify = () =>
+    toast.warn("Invalid Swap!", {
+      position: "top-center",
+      autoClose: 650,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
   ////////////////////////////////////////////////////////////////////////////////////
   // Puts card face up when clicked
   ////////////////////////////////////////////////////////////////////////////////////
@@ -32,12 +45,11 @@ function SingleCard({
     return card;
   };
   useEffect(() => {
-
-    console.log("rendering...")
-      if (cardHighlight != true){
-        setHighlight(false)
-      }
-  }, [cardHighlight])
+    console.log("rendering...");
+    if (cardHighlight != true) {
+      setHighlight(false);
+    }
+  }, [cardHighlight]);
   ////////////////////////////////////////////////////////////////////////////////////
   //Checks to see what cards face up
   ////////////////////////////////////////////////////////////////////////////////////
@@ -70,13 +82,18 @@ function SingleCard({
     //setChoose(card)
     const pos = chooseSwitch(card, the_player, toSwitch, topCard, setTop);
 
-    if (pos != 10 || pos == 5) {
+    if (pos == 5) {
       setDeckHighlight(false);
-      setCardHighlight(false)
-      setHighlight(false)
+      setCardHighlight(false);
+      setHighlight(false);
+      notify();
+    } else if (pos != 10) {
+      setDeckHighlight(false);
+      setCardHighlight(false);
+      setHighlight(false);
     } else {
-        setHighlight(true);
-        setCardHighlight(true)
+      setHighlight(true);
+      setCardHighlight(true);
     }
     // Changes card to face up once switched with top card
     if (pos < 6) {

@@ -4,6 +4,9 @@ import "../App.css";
 import { grabTopCard, chooseSwitch } from "../Backend/manageGame";
 import ViewPopUp from "./viewPopUp";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 ////////////////////////////////////////////////////////////////////////////////////
 // Top display component of remaining deck and deck pile to choose from
 ////////////////////////////////////////////////////////////////////////////////////
@@ -28,6 +31,18 @@ function DeckPiles({
     console.log(viewTop);
   };
 
+  const notify = () =>
+    toast.warn("Invalid Swap!", {
+      position: "top-center",
+      autoClose: 650,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+
   ////////////////////////////////////////////////////////////////////////////////////
   // Pull new Top card
   ////////////////////////////////////////////////////////////////////////////////////
@@ -42,15 +57,19 @@ function DeckPiles({
 
   const setPlace = () => {
     const change = chooseSwitch(freshTop, player, toSwitch, freshTop, setTop);
-    if (change != 10) {
-
+    if (change == 5) {
       setDeckHighlight(false);
-      console.log("TRIGGER UN_HIGHLIGHT")
-      setCardHighlight(false)
+      notify();
+      console.log("TRIGGER UN_HIGHLIGHT throw error");
+      setCardHighlight(false);
+    } else if (change != 10) {
+      setDeckHighlight(false);
+      console.log("TRIGGER UN_HIGHLIGHT");
+      setCardHighlight(false);
     } else {
       setDeckHighlight(true);
     }
-    setCardHighlight(false)
+    setCardHighlight(false);
   };
 
   return (
@@ -85,6 +104,18 @@ function DeckPiles({
           class="card-highlight"
         />
       )}
+      <ToastContainer
+        position="top-center"
+        autoClose={650}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </div>
   );
 }
