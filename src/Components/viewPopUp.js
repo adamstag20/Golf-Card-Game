@@ -1,4 +1,5 @@
 import React from "react";
+import { chooseSwitch } from "../Backend/manageGame";
 import "../PopUp.css";
 
 function ViewPopUp({
@@ -9,11 +10,19 @@ function ViewPopUp({
   theDeck,
   toSwitch,
   highlight,
+  freshTop,
+  player,
+  setCardHighlight
 }) {
   ////////////////////////////////////////////////////////////////////////////
   // Put potential card that was drawn from deck to the discard pile
   ////////////////////////////////////////////////////////////////////////////
   const discardPot = () => {
+
+    if (toSwitch.length == 1){
+      toSwitch.pop()
+      setCardHighlight(false)
+    }
     setTop(potentialCard);
     theDeck.pop();
     setPot(theDeck[theDeck.length - 1]);
@@ -25,14 +34,24 @@ function ViewPopUp({
   // Adds the potential card drawn from deck into switching array
   ////////////////////////////////////////////////////////////////////////////
   const addPot = () => {
-    toSwitch.push(potentialCard);
-    setTop(potentialCard);
-    theDeck.pop();
-    setPot(theDeck[theDeck.length - 1]);
-    setToggle(false);
-    highlight(true);
-    console.log("Here!!");
-    console.log(theDeck.length);
+    if (toSwitch.length == 0) {
+
+      toSwitch.push(potentialCard);
+      setTop(potentialCard);
+      theDeck.pop();
+      setPot(theDeck[theDeck.length - 1]);
+      setToggle(false);
+      highlight(true);
+    }
+    else {
+      const change = chooseSwitch(potentialCard, player, toSwitch, freshTop,setTop)
+      if (change != 5 && change != 10){
+        setCardHighlight(false)
+      }
+      theDeck.pop()
+      setPot(theDeck[theDeck.length - 1]);
+      setToggle(false);
+    }
   };
   return (
     <div className="choosePopUp">

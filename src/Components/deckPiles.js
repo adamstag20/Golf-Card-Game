@@ -24,7 +24,12 @@ function DeckPiles({
   const [openToggle, setToggle] = useState(false);
   const [viewTop, setViewTop] = useState(theDeck[theDeck.length - 1]);
 
-  useEffect(() => {}, [deckHighlight]);
+  /*
+  useEffect(() => {
+    const change = chooseSwitch(freshTop, player, toSwitch, freshTop, setTop);
+    console.log("Trigger openToggle useEffect") 
+  }, [openToggle]);
+*/
 
   const toggleCard = () => {
     setToggle(!openToggle);
@@ -79,7 +84,7 @@ function DeckPiles({
         src={require("../Classic/back.png")}
         alt="deck-back"
       />
-      {openToggle && (
+      {openToggle && !deckHighlight && (
         <ViewPopUp
           potentialCard={viewTop}
           setPot={setViewTop}
@@ -88,6 +93,9 @@ function DeckPiles({
           theDeck={theDeck}
           toSwitch={toSwitch}
           highlight={setDeckHighlight}
+          freshTop = {freshTop}
+          player = {player}
+          setCardHighlight = {setCardHighlight}
         />
       )}
       {!deckHighlight ? (

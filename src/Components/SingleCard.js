@@ -43,6 +43,14 @@ function SingleCard({
     console.log("flipping card")
     if (cardHighlight == true && faceUp == 1){
       notify()
+      toSwitch.pop()
+      setCardHighlight(false)
+    }
+    else if (toSwitch.length == 1){
+      setPlace()
+      setFaceUp(0)
+      card.face = 1
+
     }
     else {
       setFaceUp(0);
