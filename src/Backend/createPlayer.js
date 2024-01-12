@@ -1,8 +1,20 @@
 class Player {
-  constructor(hand, faces) {
+  constructor(id, hand) {
+    this.id = id;
     this.hand = hand;
-    this.faces = faces;
+    this.total = 0;
+    this.rounds = [];
   }
+}
+
+const setPlayers = (totalPlay,theDeck) => {
+  let players = []
+  for (let i = 0; i < totalPlay; i++){
+    let toAdd = new Player(i+1, createHand(theDeck))
+    players.push(toAdd)
+  }
+  return players
+
 }
 
 const createHand = (theDeck) => {
@@ -13,4 +25,4 @@ const createHand = (theDeck) => {
   return new_hand;
 };
 
-export { Player, createHand };
+export { Player, setPlayers, createHand };

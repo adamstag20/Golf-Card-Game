@@ -1,6 +1,6 @@
 import "./App.css";
 import shuffleDeck from "./Backend/loadDeck";
-import { Player, createHand } from "./Backend/createPlayer";
+import { Player, setPlayers, createHand } from "./Backend/createPlayer";
 import DeckPiles from "./Components/deckPiles";
 import SingleCard from "./Components/SingleCard";
 import RoundResult from "./Components/roundResult";
@@ -15,6 +15,8 @@ function App() {
   const [a_hand, setHand] = useState(() => {
     return [];
   });
+
+  const [allPlayers, setAllPlayers] = useState();
   const [playOn, setPlayOn] = useState(true); // Used to track how many cards face up
   const [score, setScore] = useState(0); // Keeps track of scoring
   const [start, setStart] = useState(false); // Allows app to know when to start game
@@ -28,6 +30,7 @@ function App() {
 
   const NewGame = () => {
     shuffledDeck = shuffleDeck();
+    setAllPlayers(setPlayers(3,shuffledDeck))
     setHand(createHand(shuffledDeck));
     setTopCard(grabTopCard(shuffledDeck));
     setDeckHighlight(false)
@@ -35,9 +38,7 @@ function App() {
     setStart(true);
     setCardHighlight(false)
     setDeckHighlight(false)
-    console.log(topCard);
-  };
-
+  }
   //////////////////////////////////////////////////////////////
   // Display stuff
   //////////////////////////////////////////////////////////////

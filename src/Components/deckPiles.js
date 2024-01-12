@@ -32,8 +32,11 @@ function DeckPiles({
 */
 
   const toggleCard = () => {
-    setToggle(!openToggle);
-    console.log(viewTop);
+    if (!deckHighlight){
+      console.log("Toggle no no :(")
+      setToggle(!openToggle);
+    }
+    console.log("TOGGLED ASS HOLE");
   };
 
   const notify = () =>
