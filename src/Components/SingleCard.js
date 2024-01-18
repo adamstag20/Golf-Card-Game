@@ -18,6 +18,7 @@ function SingleCard({
   setDeckHighlight,
   setCardHighlight,
   cardHighlight,
+  setUpdateIndex,
 }) {
   const [faceUp, setFaceUp] = useState(1);
   const [highlight, setHighlight] = useState(false);
@@ -107,6 +108,8 @@ function SingleCard({
       setDeckHighlight(false);
       setCardHighlight(false);
       setHighlight(false);
+      setUpdateIndex(true)
+      console.log("True")
     } else {
       setHighlight(true);
       setCardHighlight(true);

@@ -27,7 +27,9 @@ function chooseSwitch(to_add, the_player, toSwitch, topCard, setTop) {
     toSwitch.push(to_add);
     console.log(toSwitch);
     return 10;
-  } else {
+  } 
+  //  two cards selected see if they can be swapped
+  else {
     toSwitch.push(to_add);
     console.log(toSwitch);
     if (toSwitch[0].src === toSwitch[1].src) {

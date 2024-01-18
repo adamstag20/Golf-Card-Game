@@ -5,7 +5,7 @@ import DeckPiles from "./Components/deckPiles";
 import SingleCard from "./Components/SingleCard";
 import RoundResult from "./Components/roundResult";
 import { grabTopCard } from "./Backend/manageGame";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 var shuffledDeck = [];
 var toSwitch = [];
@@ -16,22 +16,34 @@ function App() {
     return [];
   });
 
-  const [allPlayers, setAllPlayers] = useState();
+  const [allPlayers, setAllPlayers] = useState(); //all players array
+  const [index, setIndex] = useState(); // current player index
+  const [updateIndex, setUpdateIndex] = useState(false);
   const [playOn, setPlayOn] = useState(true); // Used to track how many cards face up
   const [score, setScore] = useState(0); // Keeps track of scoring
+
   const [start, setStart] = useState(false); // Allows app to know when to start game
   const [topCard, setTopCard] = useState(0); // holds top card
   const [cardHighlight, setCardHighlight] = useState(false)
   const [deckHighlight, setDeckHighlight] = useState(false)
+
+  // Have players set before initiating a new game.
+
+  // Pass copy of the cards to a_hand and then update players as needed.
+  useEffect (() => {
+    shuffledDeck = shuffleDeck();
+    setAllPlayers(setPlayers(3, shuffledDeck))
+
+  }, [])
 
   //////////////////////////////////////////////////////////////
   // Resets a shuffled deck and allows new game to be played
   //////////////////////////////////////////////////////////////
 
   const NewGame = () => {
-    shuffledDeck = shuffleDeck();
-    setAllPlayers(setPlayers(3,shuffledDeck))
-    setHand(createHand(shuffledDeck));
+    console.log(allPlayers)
+    setHand(allPlayers[2].hand);
+    setIndex(2);
     setTopCard(grabTopCard(shuffledDeck));
     setDeckHighlight(false)
     setPlayOn(true);
@@ -57,13 +69,14 @@ function App() {
           deckHighlight={deckHighlight}
           setDeckHighlight={setDeckHighlight}
           setCardHighlight={setCardHighlight}
+          setUpdateIndex={setUpdateIndex}
         />
       ) : (
         <div></div>
       )}
       <div className="card-grid">
         {playOn ? (
-          a_hand.map((card) => (
+         a_hand.map((card) => (
             <SingleCard
               key={card.id}
               card={card}
@@ -75,6 +88,7 @@ function App() {
               setDeckHighlight={setDeckHighlight}
               setCardHighlight={setCardHighlight}
               cardHighlight={cardHighlight}
+              setUpdateIndex={setUpdateIndex}
             />
           ))
         ) : (

@@ -100,3 +100,12 @@ mistakes.
 The next steps are to create rounds and amount of turns as well. I want to also set up multiple 
 players so you can choose how many players. Slowling getting there happy to have working 
 mechanics and error handling!
+
+-----------------------------------------------------------------------------------------
+
+JANUARY 17 2024
+
+Working on building players queue for actual game play and round adding. Added index 
+function and array of players. Notice that when updating a_hand when I click New Game 
+the cards aren't automatically flipped over so the state is being changes as I make
+moves to the hand. Need to fix this.

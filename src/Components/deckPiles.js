@@ -20,6 +20,7 @@ function DeckPiles({
   deckHighlight,
   setDeckHighlight,
   setCardHighlight,
+  setUpdateIndex,
 }) {
   const [openToggle, setToggle] = useState(false);
   const [viewTop, setViewTop] = useState(theDeck[theDeck.length - 1]);
@@ -74,6 +75,8 @@ function DeckPiles({
       setDeckHighlight(false);
       console.log("TRIGGER UN_HIGHLIGHT");
       setCardHighlight(false);
+      setUpdateIndex(true)
+      console.log("True")
     } else {
       setDeckHighlight(true);
     }

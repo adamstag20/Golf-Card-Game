@@ -10,7 +10,7 @@ class Player {
 const setPlayers = (totalPlay,theDeck) => {
   let players = []
   for (let i = 0; i < totalPlay; i++){
-    let toAdd = new Player(i+1, createHand(theDeck))
+    let toAdd = new Player(i, createHand(theDeck))
     players.push(toAdd)
   }
   return players
