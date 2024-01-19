@@ -20,7 +20,7 @@ function SingleCard({
   cardHighlight,
   setUpdateIndex,
 }) {
-  const [faceUp, setFaceUp] = useState(1);
+  const [faceUp, setFaceUp] = useState(card.face);
   const [highlight, setHighlight] = useState(false);
   //const [choose,setChoose] = useState([]);
 
@@ -49,12 +49,12 @@ function SingleCard({
     }
     else if (toSwitch.length == 1){
       setPlace()
-      setFaceUp(0)
+      setFaceUp(1)
       card.face = 1
 
     }
     else {
-      setFaceUp(0);
+      setFaceUp(1);
       card.face = 1;
       checkFaces();
 
@@ -123,7 +123,7 @@ function SingleCard({
   return (
     <div className="card">
       <div>
-        {faceUp ? (
+        {!faceUp ? (
           <img
             className="back"
             onClick={Change}

@@ -24,33 +24,60 @@ function App() {
 
   const [start, setStart] = useState(false); // Allows app to know when to start game
   const [topCard, setTopCard] = useState(0); // holds top card
-  const [cardHighlight, setCardHighlight] = useState(false)
-  const [deckHighlight, setDeckHighlight] = useState(false)
+  const [cardHighlight, setCardHighlight] = useState(false);
+  const [deckHighlight, setDeckHighlight] = useState(false);
 
   // Have players set before initiating a new game.
 
   // Pass copy of the cards to a_hand and then update players as needed.
-  useEffect (() => {
+  useEffect(() => {
+    /*
     shuffledDeck = shuffleDeck();
     setAllPlayers(setPlayers(3, shuffledDeck))
+    */
+    if (updateIndex) {
+      console.log("Lets change the hand shall we?");
+      if (index + 1 != allPlayers.length) {
+        allPlayers[index].hand = a_hand;
+        console.log(allPlayers[index])
+        setAllPlayers(allPlayers);
 
-  }, [])
+        setHand(allPlayers[index + 1].hand);
+        setIndex(index + 1);
+
+      } else {
+
+        allPlayers[index].hand = a_hand;
+        console.log(allPlayers[index])
+        setAllPlayers(allPlayers);
+        setHand(allPlayers[0].hand);
+        setIndex(0);
+      }
+      setUpdateIndex(false);
+    } else {
+      console.log("useEffect trigger");
+    }
+  });
 
   //////////////////////////////////////////////////////////////
   // Resets a shuffled deck and allows new game to be played
   //////////////////////////////////////////////////////////////
 
   const NewGame = () => {
-    console.log(allPlayers)
-    setHand(allPlayers[2].hand);
+    console.log(allPlayers);
+    // Shuffle a new deck and grab new players
+    shuffledDeck = shuffleDeck();
+    let grabPlayers = setPlayers(3, shuffledDeck);
+    setAllPlayers(grabPlayers);
+    setHand(grabPlayers[2].hand);
     setIndex(2);
     setTopCard(grabTopCard(shuffledDeck));
-    setDeckHighlight(false)
+    setDeckHighlight(false);
     setPlayOn(true);
     setStart(true);
-    setCardHighlight(false)
-    setDeckHighlight(false)
-  }
+    setCardHighlight(false);
+    setDeckHighlight(false);
+  };
   //////////////////////////////////////////////////////////////
   // Display stuff
   //////////////////////////////////////////////////////////////
@@ -74,9 +101,10 @@ function App() {
       ) : (
         <div></div>
       )}
+      <header>Player {index+1}</header>
       <div className="card-grid">
         {playOn ? (
-         a_hand.map((card) => (
+          a_hand.map((card) => (
             <SingleCard
               key={card.id}
               card={card}
