@@ -109,3 +109,12 @@ Working on building players queue for actual game play and round adding. Added i
 function and array of players. Notice that when updating a_hand when I click New Game 
 the cards aren't automatically flipped over so the state is being changes as I make
 moves to the hand. Need to fix this.
+
+--------------------------------------------------------------------------------------
+
+JANUARY 18 2024
+
+Got players array and display working. Fixed rendering issue mentione above as well.
+I added a useEffect in app.js that updates the players array and keeps track of who is
+up. Need to add a delay between player change, add turn over when card is flipped, logic
+for selecting and then flipping. It is all coming together slowly I am stoked. 
