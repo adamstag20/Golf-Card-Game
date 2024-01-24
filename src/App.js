@@ -36,24 +36,27 @@ function App() {
     setAllPlayers(setPlayers(3, shuffledDeck))
     */
     if (updateIndex) {
-      console.log("Lets change the hand shall we?");
-      if (index + 1 != allPlayers.length) {
-        allPlayers[index].hand = a_hand;
-        console.log(allPlayers[index])
-        setAllPlayers(allPlayers);
 
-        setHand(allPlayers[index + 1].hand);
-        setIndex(index + 1);
+      setTimeout(() => {
+        if (index + 1 != allPlayers.length) {
+          allPlayers[index].hand = a_hand;
+          console.log(allPlayers[index])
+          setAllPlayers(allPlayers);
+  
+          setHand(allPlayers[index + 1].hand);
+          setIndex(index + 1);
+  
+        } else {
+  
+          allPlayers[index].hand = a_hand;
+          console.log(allPlayers[index])
+          setAllPlayers(allPlayers);
+          setHand(allPlayers[0].hand);
+          setIndex(0);
+        }
+        setUpdateIndex(false);
+      }, "1200");
 
-      } else {
-
-        allPlayers[index].hand = a_hand;
-        console.log(allPlayers[index])
-        setAllPlayers(allPlayers);
-        setHand(allPlayers[0].hand);
-        setIndex(0);
-      }
-      setUpdateIndex(false);
     } else {
       console.log("useEffect trigger");
     }
@@ -67,10 +70,10 @@ function App() {
     console.log(allPlayers);
     // Shuffle a new deck and grab new players
     shuffledDeck = shuffleDeck();
-    let grabPlayers = setPlayers(3, shuffledDeck);
+    let grabPlayers = setPlayers(2, shuffledDeck);
     setAllPlayers(grabPlayers);
-    setHand(grabPlayers[2].hand);
-    setIndex(2);
+    setHand(grabPlayers[0].hand);
+    setIndex(0);
     setTopCard(grabTopCard(shuffledDeck));
     setDeckHighlight(false);
     setPlayOn(true);

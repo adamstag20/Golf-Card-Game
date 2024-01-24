@@ -118,3 +118,14 @@ Got players array and display working. Fixed rendering issue mentione above as w
 I added a useEffect in app.js that updates the players array and keeps track of who is
 up. Need to add a delay between player change, add turn over when card is flipped, logic
 for selecting and then flipping. It is all coming together slowly I am stoked. 
+
+
+
+----------------------------------------------------------------------------------------
+
+JANUARY 23 2024
+
+Added slight delay between flips of each player, need to end turn when user discards
+from deck pile. ALSO need to add two card flip for each player in beginning of round...
+Still more game mechanics to complete.
+

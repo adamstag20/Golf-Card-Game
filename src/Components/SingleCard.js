@@ -57,6 +57,7 @@ function SingleCard({
       setFaceUp(1);
       card.face = 1;
       checkFaces();
+      setUpdateIndex(true)
 
     }
     return card;
