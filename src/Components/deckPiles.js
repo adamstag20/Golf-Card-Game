@@ -102,6 +102,7 @@ function DeckPiles({
           freshTop = {freshTop}
           player = {player}
           setCardHighlight = {setCardHighlight}
+          setUpdateIndex = {setUpdateIndex}
         />
       )}
       {!deckHighlight ? (

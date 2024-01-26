@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { calcScore } from "../Backend/manageGame";
 
-function RoundResult({ setScore, a_hand }) {
+function RoundResult({ setScore, a_hand, player }) {
   var score = 0;
   const [roundScore, setRoundScore] = useState(0);
   const [load, setLoad] = useState(true);
@@ -19,7 +19,7 @@ function RoundResult({ setScore, a_hand }) {
   return (
     <div onload="findScore()">
       <script>function findScore() {(score = getScore())}</script>
-      <div className="round-score">Your score was {roundScore}</div>
+      <div className="round-score">Player {player+1} score was {roundScore}</div>
     </div>
   );
 }

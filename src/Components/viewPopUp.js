@@ -12,7 +12,8 @@ function ViewPopUp({
   highlight,
   freshTop,
   player,
-  setCardHighlight
+  setCardHighlight,
+  setUpdateIndex
 }) {
   ////////////////////////////////////////////////////////////////////////////
   // Put potential card that was drawn from deck to the discard pile
@@ -28,6 +29,7 @@ function ViewPopUp({
     setPot(theDeck[theDeck.length - 1]);
     setToggle(false);
     console.log(theDeck.length);
+    setUpdateIndex(true)
   };
 
   ////////////////////////////////////////////////////////////////////////////

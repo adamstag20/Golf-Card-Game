@@ -19,6 +19,11 @@ function SingleCard({
   setCardHighlight,
   cardHighlight,
   setUpdateIndex,
+  setEnd,
+  end,
+  index,
+  setScore,
+  score
 }) {
   const [faceUp, setFaceUp] = useState(card.face);
   const [highlight, setHighlight] = useState(false);
@@ -79,8 +84,17 @@ function SingleCard({
         counter += 1;
       }
     }
+
+    // first person to initate makes this trigger go. 
     if (counter === 6) {
-      setTimeout(createDelay, "4000");
+        console.log("SETTING END PLAYER", JSON.stringify({end}))
+      if (end == false ){
+        console.log("SETTING END PLAYER ACTUALLY3")
+        setEnd(true)
+        setScore(index)
+      }
+      //setTimeout(createDelay, "4000");
+
     }
   };
 

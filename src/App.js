@@ -20,7 +20,8 @@ function App() {
   const [index, setIndex] = useState(); // current player index
   const [updateIndex, setUpdateIndex] = useState(false);
   const [playOn, setPlayOn] = useState(true); // Used to track how many cards face up
-  const [score, setScore] = useState(0); // Keeps track of scoring
+  const [score, setScore] = useState(-1); // Keeps track of scoring
+  const [end, setEnd] = useState(false)
 
   const [start, setStart] = useState(false); // Allows app to know when to start game
   const [topCard, setTopCard] = useState(0); // holds top card
@@ -39,20 +40,36 @@ function App() {
 
       setTimeout(() => {
         if (index + 1 != allPlayers.length) {
+
+          
+          // Check to see if next person was first to flip all cards
+          if (index +1 == score){
+            console.log("NEXT PLAYER 0")
+            setPlayOn(false)
+          }
           allPlayers[index].hand = a_hand;
-          console.log(allPlayers[index])
+          console.log(allPlayers)
           setAllPlayers(allPlayers);
   
           setHand(allPlayers[index + 1].hand);
           setIndex(index + 1);
+          
   
         } else {
+
+          // Check to see if next person was first to flip all cards
+          if (0 == score){
+
+            console.log("NEXT PLAYER 0")
+            setPlayOn(false)
+          }
   
           allPlayers[index].hand = a_hand;
-          console.log(allPlayers[index])
+          console.log(allPlayers)
           setAllPlayers(allPlayers);
           setHand(allPlayers[0].hand);
           setIndex(0);
+          
         }
         setUpdateIndex(false);
       }, "1200");
@@ -80,6 +97,8 @@ function App() {
     setStart(true);
     setCardHighlight(false);
     setDeckHighlight(false);
+    setEnd(false)
+    setScore(-1)
   };
   //////////////////////////////////////////////////////////////
   // Display stuff
@@ -120,10 +139,20 @@ function App() {
               setCardHighlight={setCardHighlight}
               cardHighlight={cardHighlight}
               setUpdateIndex={setUpdateIndex}
+              setEnd = {setEnd}
+              end = {end}
+              index = {index}
+              setScore = {setScore}
+              score = {score}
             />
           ))
         ) : (
-          <RoundResult setScore={setScore} a_hand={a_hand} />
+          allPlayers.map(({hand, id}) => ( 
+            <RoundResult setScore={setScore} 
+            a_hand={hand} 
+            player = {id}
+            /> 
+          ))
         )}
       </div>
     </div>
