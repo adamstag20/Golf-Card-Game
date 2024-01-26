@@ -129,3 +129,10 @@ Added slight delay between flips of each player, need to end turn when user disc
 from deck pile. ALSO need to add two card flip for each player in beginning of round...
 Still more game mechanics to complete.
 
+
+----------------------------------------------------------------------------------------
+
+JANUARY 25 2024
+
+Added discard to end turn, have calculated score after each player does their last turn,
+need to add pause before PlayOn is set false to display the scores and to flip any cards not flipped.
