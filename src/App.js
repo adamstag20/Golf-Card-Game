@@ -6,9 +6,13 @@ import SingleCard from "./Components/SingleCard";
 import RoundResult from "./Components/roundResult";
 import { grabTopCard } from "./Backend/manageGame";
 import { useState, useEffect } from "react";
+import PrepGamePop from "./Components/newGamePop"
 
 var shuffledDeck = [];
 var toSwitch = [];
+const TOTAL_PLAYERS = 2;
+let prepCount = 0;
+let prepPlayer = 0;
 
 function App() {
   // Players hand
@@ -21,7 +25,8 @@ function App() {
   const [updateIndex, setUpdateIndex] = useState(false);
   const [playOn, setPlayOn] = useState(true); // Used to track how many cards face up
   const [score, setScore] = useState(-1); // Keeps track of scoring
-  const [end, setEnd] = useState(false)
+  const [end, setEnd] = useState(false);
+  const [prepGame, setPrepGame] = useState(false);
 
   const [start, setStart] = useState(false); // Allows app to know when to start game
   const [topCard, setTopCard] = useState(0); // holds top card
@@ -30,12 +35,49 @@ function App() {
 
   // Have players set before initiating a new game.
 
+  const prepGameDisplay = () => {
+
+    console.log("Here but still not working")
+  }
+
   // Pass copy of the cards to a_hand and then update players as needed.
   useEffect(() => {
-    /*
-    shuffledDeck = shuffleDeck();
-    setAllPlayers(setPlayers(3, shuffledDeck))
-    */
+
+    // Allows each player to flip over two cards to start game
+    if (prepGame == true){
+
+      let checkVal = 3
+      // All players have flipped 2 cards do not return
+      if (TOTAL_PLAYERS == 2){
+        checkVal += 1
+      }
+      if (prepPlayer == checkVal){
+        prepPlayer = 0
+        prepCount = 0
+        setPrepGame(false)
+        
+      }
+      else {
+
+      
+      //Player hasn't flipped two cards yet
+      if (prepCount != TOTAL_PLAYERS +1){
+        prepCount += 1
+        setUpdateIndex(false)
+      
+      }
+      //Player has flipped two cards
+      if (prepCount == TOTAL_PLAYERS + 1 ){
+        setUpdateIndex(true)
+        prepPlayer += 1
+        prepCount = 0
+      }else {
+        return
+      }
+    }
+    }
+
+   // Updates index of current player being displayed
     if (updateIndex) {
 
       setTimeout(() => {
@@ -74,9 +116,8 @@ function App() {
         setUpdateIndex(false);
       }, "1200");
 
-    } else {
-      console.log("useEffect trigger");
-    }
+    } 
+
   });
 
   //////////////////////////////////////////////////////////////
@@ -87,7 +128,7 @@ function App() {
     console.log(allPlayers);
     // Shuffle a new deck and grab new players
     shuffledDeck = shuffleDeck();
-    let grabPlayers = setPlayers(2, shuffledDeck);
+    let grabPlayers = setPlayers(TOTAL_PLAYERS, shuffledDeck);
     setAllPlayers(grabPlayers);
     setHand(grabPlayers[0].hand);
     setIndex(0);
@@ -99,6 +140,7 @@ function App() {
     setDeckHighlight(false);
     setEnd(false)
     setScore(-1)
+    setPrepGame(true)
   };
   //////////////////////////////////////////////////////////////
   // Display stuff
@@ -123,7 +165,10 @@ function App() {
       ) : (
         <div></div>
       )}
-      <header>Player {index+1}</header>
+      <PrepGamePop 
+        prepGame= {prepGame}
+        index = {index} 
+      />
       <div className="card-grid">
         {playOn ? (
           a_hand.map((card) => (
