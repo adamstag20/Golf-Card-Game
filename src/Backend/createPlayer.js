@@ -25,4 +25,18 @@ const createHand = (theDeck) => {
   return new_hand;
 };
 
+// Give current players new hand of cards
+const refreshPlayer = (allPlayers, theDeck) => {
+
+const totalPlayers = allPlayers.length
+
+for (let i = 0; i < totalPlayers; i++){
+  let new_hand = []
+  for (let j = 1; j <= 6; j++) {
+    new_hand.push(theDeck.pop());
+  }
+  allPlayers[i].hand = new_hand
+}
+return allPlayers
+}
 export { Player, setPlayers, createHand };

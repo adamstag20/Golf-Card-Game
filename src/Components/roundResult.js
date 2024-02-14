@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { calcScore } from "../Backend/manageGame";
 
-function RoundResult({ setScore, a_hand, player }) {
+function RoundResult({ setScore, a_hand, playerId, allPlayers, setAllPlayers}) {
   var score = 0;
   const [roundScore, setRoundScore] = useState(0);
   const [load, setLoad] = useState(true);
@@ -11,6 +11,8 @@ function RoundResult({ setScore, a_hand, player }) {
       score = calcScore(a_hand);
       setScore((prevScore) => prevScore + score);
       console.log(score);
+      allPlayers.rounds += score;
+      setAllPlayers(allPlayers)
       setRoundScore(score);
       setLoad(false);
     }
@@ -19,7 +21,7 @@ function RoundResult({ setScore, a_hand, player }) {
   return (
     <div onload="findScore()">
       <script>function findScore() {(score = getScore())}</script>
-      <div className="round-score">Player {player+1} score was {roundScore}</div>
+      <div className="round-score">Player {playerId+1} score was {roundScore}</div>
     </div>
   );
 }
