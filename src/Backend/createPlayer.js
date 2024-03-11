@@ -26,7 +26,7 @@ const createHand = (theDeck) => {
 };
 
 // Give current players new hand of cards
-const refreshPlayer = (allPlayers, theDeck) => {
+const refreshPlayers = (allPlayers, theDeck) => {
 
 const totalPlayers = allPlayers.length
 
@@ -39,4 +39,4 @@ for (let i = 0; i < totalPlayers; i++){
 }
 return allPlayers
 }
-export { Player, setPlayers, createHand };
+export { Player, setPlayers, createHand, refreshPlayers };

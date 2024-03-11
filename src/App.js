@@ -1,6 +1,6 @@
 import "./App.css";
 import shuffleDeck from "./Backend/loadDeck";
-import { Player, setPlayers, createHand } from "./Backend/createPlayer";
+import { Player, setPlayers, createHand, refreshPlayers } from "./Backend/createPlayer";
 import DeckPiles from "./Components/deckPiles";
 import SingleCard from "./Components/SingleCard";
 import RoundResult from "./Components/roundResult";
@@ -33,11 +33,7 @@ function App() {
   const [cardHighlight, setCardHighlight] = useState(false);
   const [deckHighlight, setDeckHighlight] = useState(false);
 
-  // Have players set before initiating a new game.
-
-  const prepGameDisplay = () => {
-    console.log("Here but still not working");
-  };
+  
 
   // Pass copy of the cards to a_hand and then update players as needed.
   useEffect(() => {
@@ -75,7 +71,6 @@ function App() {
         if (index + 1 != allPlayers.length) {
           // Check to see if next person was first to flip all cards
           if (index + 1 == score) {
-            console.log("NEXT PLAYER 0");
             setPlayOn(false);
           }
           allPlayers[index].hand = a_hand;
@@ -87,7 +82,6 @@ function App() {
         } else {
           // Check to see if next person was first to flip all cards
           if (0 == score) {
-            console.log("NEXT PLAYER 0");
             setPlayOn(false);
           }
 
@@ -111,6 +105,28 @@ function App() {
     shuffledDeck = shuffleDeck();
     let grabPlayers = setPlayers(TOTAL_PLAYERS, shuffledDeck);
     setAllPlayers(grabPlayers);
+    setHand(grabPlayers[0].hand);
+    setIndex(0);
+    setTopCard(grabTopCard(shuffledDeck));
+    setDeckHighlight(false);
+    setPlayOn(true);
+    setStart(true);
+    setCardHighlight(false);
+    setDeckHighlight(false);
+    setEnd(false);
+    setScore(-1);
+    setPrepGame(true);
+  };
+
+  const nextRound = () => {
+    shuffledDeck = shuffleDeck(); // New deck
+    /*
+
+    let grabPlayers = setPlayers(TOTAL_PLAYERS, shuffledDeck);
+    setAllPlayers(grabPlayers);
+
+    */
+   let grabPlayers = refreshPlayers(allPlayers, shuffledDeck);
     setHand(grabPlayers[0].hand);
     setIndex(0);
     setTopCard(grabTopCard(shuffledDeck));
@@ -180,7 +196,7 @@ function App() {
                 setAllPlayers={setAllPlayers}
               />
             ))}
-            <button>Next Round</button>
+            <button onClick = {nextRound}>Next Round</button>
           </div>
         )}
       </div>

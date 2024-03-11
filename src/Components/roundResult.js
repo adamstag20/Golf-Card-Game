@@ -7,12 +7,13 @@ function RoundResult({ setScore, a_hand, playerId, allPlayers, setAllPlayers}) {
   const [load, setLoad] = useState(true);
 
   const getScore = () => {
+
     if (load === true) {
       score = calcScore(a_hand);
       setScore((prevScore) => prevScore + score);
       console.log(score);
-      allPlayers.rounds += score;
-      setAllPlayers(allPlayers)
+      allPlayers[playerId].rounds.push(score);
+      setAllPlayers(allPlayers);
       setRoundScore(score);
       setLoad(false);
     }

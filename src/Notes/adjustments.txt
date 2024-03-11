@@ -136,3 +136,25 @@ JANUARY 25 2024
 
 Added discard to end turn, have calculated score after each player does their last turn,
 need to add pause before PlayOn is set false to display the scores and to flip any cards not flipped.
+
+-----------------------------------------------------------------------------------------
+FEBRUARY 13 2024
+
+Button now in RoundResult, need to make it trigger a function that preps current players
+to get new hand of cards while keeping their scores intact. Also establish new deck and 
+set all the the useState variables needed for proper gameplay... New Game function should
+be very helpful for this.
+
+------------------------------------------------------------------------------------------
+MARCH 11 2024
+
+Added a new function in App.js called nextRound which establishes a new round of cards and adds
+previous rounds score to players. No check to see if round limit has been reached, will need to add this.
+
+
+
+
+TO-DOs :
+
+ - Add round check to stop game if 9 OR 18 holes is reached.
+ - Build display for end of game summary

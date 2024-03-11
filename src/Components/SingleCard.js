@@ -46,7 +46,6 @@ function SingleCard({
 
   const Change = () => {
     
-    console.log("flipping card")
     if (cardHighlight == true && faceUp == 1){
       notify()
       toSwitch.pop()
@@ -87,9 +86,7 @@ function SingleCard({
 
     // first person to initate makes this trigger go. 
     if (counter === 6) {
-        console.log("SETTING END PLAYER", JSON.stringify({end}))
       if (end == false ){
-        console.log("SETTING END PLAYER ACTUALLY3")
         setEnd(true)
         setScore(index)
       }
