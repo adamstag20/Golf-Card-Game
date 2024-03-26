@@ -1,6 +1,6 @@
 .App {
-  max-width: 860px;
-  margin: 40px auto;
+  margin: 100px;
+
 }
 button {
   background: none;
@@ -17,7 +17,7 @@ button {
   position: relative;
 }
 .deck-pile img {
-  width: 15%;
+  width: 100px;
   height: 15%;
   margin: 20px;
   
@@ -27,16 +27,21 @@ img:hover{
   cursor: pointer;
 }
 .card img {
-  width: 40%;
+  width: 100px;
   height: 40%;
+  padding: 0%;
   margin: 5px;
   
 }
 .card-grid {
-  margin-top: 80px;
+  max-width: fit-content;
+  margin-top: 20px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  grid-template-columns: 100px 100px 100px;
+  gap: 40px;
+  position:relative;
 }
 
 .front {
@@ -54,4 +59,12 @@ img:hover{
 
 .card-highlight {
   border: 5px solid yellow;
+}
+
+.card {
+  margin: 0px;
+}
+
+.prepGame {
+  position: static;
 }
