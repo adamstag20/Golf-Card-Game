@@ -13,6 +13,10 @@ button {
   font-size: 1em;
   margin-top: 29px;
   margin-right: 20px;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .navbar{
@@ -23,6 +27,9 @@ button {
 .title {
   margin-left: 50px;
   color: #fff;
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .deck-pile {
@@ -73,5 +80,12 @@ img:hover{
 
 .card-highlight {
   border: 5px solid yellow;
+}
+
+h1 {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 

@@ -28,10 +28,18 @@
 }
 .discard {
   background: red;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 .choose {
   background: green;
   margin-right: -85px;
   padding-left: 10px;
-  padding-right: 10px
+  padding-right: 10px;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
