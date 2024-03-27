@@ -145,8 +145,10 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Golf Card Game</h1>
-      <button onClick={NewGame}>New Game</button>
+      <div className = "navbar">
+        <h1 className = "title">Golf Card Game</h1>
+        <button className = "new-game-button" onClick={NewGame}>New Game</button>
+      </div>
       {start ? (
         <DeckPiles
           theDeck={shuffledDeck}

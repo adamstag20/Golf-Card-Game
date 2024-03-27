@@ -59,7 +59,7 @@ function ViewPopUp({
     <div className="choosePopUp">
       <div className="box">
         <img
-          clasName="pop-up-img"
+          className="pop-up-img"
           src={require(`../Classic/${potentialCard.src}.png`)}
           alt="potential"
         />

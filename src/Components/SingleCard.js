@@ -46,7 +46,8 @@ function SingleCard({
 
   const Change = () => {
     
-    if (cardHighlight == true && faceUp == 1){
+    if (cardHighlight == true && (faceUp == 1 || faceUp == 0)){
+      console.log("THROW FOR FACE UP")
       notify()
       toSwitch.pop()
       setCardHighlight(false)
@@ -116,6 +117,7 @@ function SingleCard({
       setCardHighlight(false);
       setHighlight(false);
       notify();
+      return;
     } else if (pos != 10) {
       setDeckHighlight(false);
       setCardHighlight(false);

@@ -152,6 +152,24 @@ Added a new function in App.js called nextRound which establishes a new round of
 previous rounds score to players. No check to see if round limit has been reached, will need to add this.
 
 
+------------------------------------------------------------------------------------------
+MARCH 25 2024
+
+Figured out how to decrease the gaps between cards. It was an issue with the grid-template-columns 
+being set to auto/1fp making it want to fill whole web page specifically rather than sizing with px.
+I will need to make the cards and deck pile smaller so it all fits on the screen nicer. I want to 
+create a better nav bar as well for iniatiing a new game and using the title. I should touch these
+items next.
+
+------------------------------------------------------------------------------------------
+MARCH 26 2024
+
+Made a navigation bar with a brown background. Looks decent for now. Ran into issue where View potential 
+card pop up was not displaying the discard or use buttons. Spent an hour trying to debug. Had to add padding
+to the buttons class in viewPopUp.js for them to have to be scrolled to see. A real pain but figured it out.
+I want to make the player display next on the right side so people can see the other players hands.
+
+
 
 
 TO-DOs :
