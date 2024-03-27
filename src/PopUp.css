@@ -6,25 +6,32 @@
   top: 0;
   left: 0;
 }
-.potential {
-    position: center;
-}
 .box {
     position: relative;
     width: 70%;
     margin: 0 auto;
     height: auto;
-    max-height: 70vh;
-    margin-top: calc(100vh - 85vh - 20px);
+    max-height: 100vh;
+    margin-top: calc(101vh - 85vh - 20px);
+    margin-bottom: 40px;
     background: rgb(77, 80, 76);
     border-radius: 4px;
-    padding: 20px;
+    padding: 10px;
     border: 1px solid #999;
-    overflow: auto;
-  }
+    overflow:auto;
+}
+
+.buttons {
+  position: relative;
+  padding-bottom: 50px;
+  transform:translate(-50%, -50%)
+}
 .discard {
   background: red;
 }
 .choose {
   background: green;
+  margin-right: -85px;
+  padding-left: 10px;
+  padding-right: 10px
 }
