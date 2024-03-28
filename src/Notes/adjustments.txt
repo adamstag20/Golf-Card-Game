@@ -170,6 +170,13 @@ to the buttons class in viewPopUp.js for them to have to be scrolled to see. A r
 I want to make the player display next on the right side so people can see the other players hands.
 
 
+------------------------------------------------------------------------------------------
+MARCH 27 2024
+
+Added a new component called PlayerList that displays all the players on the right side of screen.
+Currently is displays all players hands face up. I will need to add logic to only show the face up cards.
+Super happy with the progress especially after yesterday's bug. The page currently is no responsive so that 
+could be an issue. Will look at this further down the line.
 
 
 TO-DOs :

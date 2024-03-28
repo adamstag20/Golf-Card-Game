@@ -1,8 +1,14 @@
 import "./App.css";
 import shuffleDeck from "./Backend/loadDeck";
-import { Player, setPlayers, createHand, refreshPlayers } from "./Backend/createPlayer";
+import {
+  Player,
+  setPlayers,
+  createHand,
+  refreshPlayers,
+} from "./Backend/createPlayer";
 import DeckPiles from "./Components/deckPiles";
 import SingleCard from "./Components/SingleCard";
+import PlayerList from "./Components/playerList";
 import RoundResult from "./Components/roundResult";
 import { grabTopCard } from "./Backend/manageGame";
 import { useState, useEffect } from "react";
@@ -32,8 +38,6 @@ function App() {
   const [topCard, setTopCard] = useState(0); // holds top card
   const [cardHighlight, setCardHighlight] = useState(false);
   const [deckHighlight, setDeckHighlight] = useState(false);
-
-  
 
   // Pass copy of the cards to a_hand and then update players as needed.
   useEffect(() => {
@@ -126,7 +130,7 @@ function App() {
     setAllPlayers(grabPlayers);
 
     */
-   let grabPlayers = refreshPlayers(allPlayers, shuffledDeck);
+    let grabPlayers = refreshPlayers(allPlayers, shuffledDeck);
     setHand(grabPlayers[0].hand);
     setIndex(0);
     setTopCard(grabTopCard(shuffledDeck));
@@ -145,9 +149,11 @@ function App() {
 
   return (
     <div className="App">
-      <div className = "navbar">
-        <h1 className = "title">Golf Card Game</h1>
-        <button className = "new-game-button" onClick={NewGame}>New Game</button>
+      <div className="navbar">
+        <h1 className="title">Golf Card Game</h1>
+        <button className="new-game-button" onClick={NewGame}>
+          New Game
+        </button>
       </div>
       {start ? (
         <DeckPiles
@@ -165,42 +171,45 @@ function App() {
         <div></div>
       )}
       <PrepGamePop prepGame={prepGame} index={index} />
-      <div className="card-grid">
-        {playOn ? (
-          a_hand.map((card) => (
-            <SingleCard
-              key={card.id}
-              card={card}
-              the_player={a_hand}
-              setPlayOn={setPlayOn}
-              toSwitch={toSwitch}
-              topCard={topCard}
-              setTop={setTopCard}
-              setDeckHighlight={setDeckHighlight}
-              setCardHighlight={setCardHighlight}
-              cardHighlight={cardHighlight}
-              setUpdateIndex={setUpdateIndex}
-              setEnd={setEnd}
-              end={end}
-              index={index}
-              setScore={setScore}
-              score={score}
-            />
-          ))
-        ) : (
-          <div>
-            {allPlayers.map(({ hand, id }) => (
-              <RoundResult
+      <div className="game-displays">
+        <div className="card-grid">
+          {playOn ? (
+            a_hand.map((card) => (
+              <SingleCard
+                key={card.id}
+                card={card}
+                the_player={a_hand}
+                setPlayOn={setPlayOn}
+                toSwitch={toSwitch}
+                topCard={topCard}
+                setTop={setTopCard}
+                setDeckHighlight={setDeckHighlight}
+                setCardHighlight={setCardHighlight}
+                cardHighlight={cardHighlight}
+                setUpdateIndex={setUpdateIndex}
+                setEnd={setEnd}
+                end={end}
+                index={index}
                 setScore={setScore}
-                a_hand={hand}
-                playerId={id}
-                allPlayers={allPlayers}
-                setAllPlayers={setAllPlayers}
+                score={score}
               />
-            ))}
-            <button onClick = {nextRound}>Next Round</button>
-          </div>
-        )}
+            ))
+          ) : (
+            <div>
+              {allPlayers.map(({ hand, id }) => (
+                <RoundResult
+                  setScore={setScore}
+                  a_hand={hand}
+                  playerId={id}
+                  allPlayers={allPlayers}
+                  setAllPlayers={setAllPlayers}
+                />
+              ))}
+              <button onClick={nextRound}>Next Round</button>
+            </div>
+          )}
+        </div>
+        <PlayerList allPlayers={allPlayers} />
       </div>
     </div>
   );
