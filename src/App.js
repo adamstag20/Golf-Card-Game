@@ -209,7 +209,8 @@ function App() {
             </div>
           )}
         </div>
-        <PlayerList allPlayers={allPlayers} />
+        <PlayerList allPlayers={allPlayers} 
+          index = {index}/>
       </div>
     </div>
   );

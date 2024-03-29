@@ -11,6 +11,11 @@
     background: rgb(77, 139, 77);
 }
 
+.player-highlight {
+    color: yellow;
+    font-weight: bold;
+}
+
 .card-shown {
     width: 100%;
     height: 100%;
