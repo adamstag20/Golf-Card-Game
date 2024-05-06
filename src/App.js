@@ -9,6 +9,7 @@ import {
 import DeckPiles from "./Components/deckPiles";
 import SingleCard from "./Components/SingleCard";
 import PlayerList from "./Components/playerList";
+import ScoreCard from "./Components/scoreCard";
 import RoundResult from "./Components/roundResult";
 import { grabTopCard } from "./Backend/manageGame";
 import { useState, useEffect } from "react";
@@ -211,6 +212,7 @@ function App() {
         </div>
         <PlayerList allPlayers={allPlayers} 
           index = {index}/>
+        <ScoreCard allPlayers={allPlayers} />
       </div>
     </div>
   );

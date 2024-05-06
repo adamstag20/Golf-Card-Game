@@ -1,0 +1,23 @@
+.score-box {
+    padding: 20px;
+    display: flex;
+    margin-left: 0;
+    width: auto;
+    height: auto;
+    position:absolute;
+    left: 0;
+    top: 0;
+    margin-left: 120px;
+    margin-top: 115px;
+    background: rgb(77, 139, 77);
+    font-family: "Montserrat", sans-serif;
+    color: rgb(44, 39, 39);
+}
+
+.score-details {
+    margin: 10px;
+}
+
+.round-num {
+    margin: 10px;
+}

@@ -179,7 +179,24 @@ Super happy with the progress especially after yesterday's bug. The page current
 could be an issue. Will look at this further down the line.
 
 
-TO-DOs :
+------------------------------------------------------------------------------------------
+MARCH 28 2024
 
+Made cards display the correct way in the player list display. Added yello highlighting of player who
+is at current turn. I have an issue where the pick card pop up is behind the player display. This is 
+something I will need to investigate how to fix. 
+
+
+--------------------------------------------------------------------------------------------
+APRIL 28 2024
+
+Added scoreboard drop down list for each player, my idea to fix window size issue is to set the rules
+to reduce the screen size ratio to mobile view so things stack instead of merge.
+
+I need to add Scorecard title and also add total scores as game progesses. 
+
+
+
+TO-DOs :
  - Add round check to stop game if 9 OR 18 holes is reached.
  - Build display for end of game summary
