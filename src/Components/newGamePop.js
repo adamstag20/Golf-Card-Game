@@ -11,7 +11,7 @@ function newGamePop() {
   )
 }
 
-function PrepGamePop({prepGame, index}) {
+function PrepGamePop({prepGame, index, playOn}) {
 
 
   if (prepGame == true){
@@ -23,7 +23,7 @@ function PrepGamePop({prepGame, index}) {
   }
   else {
 
-    if (index < 5){
+    if (index < 5 && playOn == true){
       return (
         <div className = "prepGame" >
             <h1>Player {index+1} </h1>

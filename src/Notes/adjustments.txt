@@ -194,9 +194,28 @@ Added scoreboard drop down list for each player, my idea to fix window size issu
 to reduce the screen size ratio to mobile view so things stack instead of merge.
 
 I need to add Scorecard title and also add total scores as game progesses. 
+ 
+--------------------------------------------------------------------------------------------
+MAY 6 2024
 
+Total score is now added. Used a h2 for it looks nice. Still a lot of little things to clean up,
+- need to fix roundResult display to be cleaner.
+- need to flip all cards when a round is over on the player list screen, so players can see all cards.
+- need to add rule to end game after 9 rounds.
 
 
 TO-DOs :
  - Add round check to stop game if 9 OR 18 holes is reached.
  - Build display for end of game summary
+
+
+--------------------------------------------------------------------------------------------
+JUNE 24 2024
+
+Added flip all cards when the round is over, was super easy used playOn field and added to logic
+inside the player list. Working on roundResult formatting. Issue is that the next round button is
+not in this component and it isn't centered. Looks funky.
+
+Want to add the rules for the game and get this bad boy on a live link for resume.
+
+

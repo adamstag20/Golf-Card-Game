@@ -87,7 +87,7 @@ function SingleCard({
 
     // first person to initate makes this trigger go. 
     if (counter === 6) {
-      if (end == false ){
+      if (end == false ){ 
         setEnd(true)
         setScore(index)
       }

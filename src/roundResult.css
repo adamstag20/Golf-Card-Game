@@ -1,0 +1,9 @@
+.round-box {
+    width: 300px;
+    height: auto;
+}
+.round-score {
+    font-family: "Montserrat", sans-serif;
+    padding: 5px;
+    color: white;
+}

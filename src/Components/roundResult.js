@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { calcScore } from "../Backend/manageGame";
+import "../roundResult.css";
 
 function RoundResult({ setScore, a_hand, playerId, allPlayers, setAllPlayers}) {
   var score = 0;
@@ -13,6 +14,7 @@ function RoundResult({ setScore, a_hand, playerId, allPlayers, setAllPlayers}) {
       setScore((prevScore) => prevScore + score);
       console.log(score);
       allPlayers[playerId].rounds.push(score);
+      allPlayers[playerId].total += score;
       setAllPlayers(allPlayers);
       setRoundScore(score);
       setLoad(false);
@@ -20,7 +22,7 @@ function RoundResult({ setScore, a_hand, playerId, allPlayers, setAllPlayers}) {
     return;
   };
   return (
-    <div onload="findScore()">
+    <div className = "round-box" onload="findScore()">
       <script>function findScore() {(score = getScore())}</script>
       <div className="round-score">Player {playerId+1} score was {roundScore}</div>
     </div>

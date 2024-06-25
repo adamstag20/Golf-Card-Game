@@ -1,7 +1,7 @@
 import React from "react";
 import "../playerList.css";
 
-function PlayerList({ allPlayers, index}) {
+function PlayerList({ allPlayers, index, playOn}) {
   return (
     <div>
       {allPlayers && (
@@ -16,7 +16,8 @@ function PlayerList({ allPlayers, index}) {
               )}
               <div className="grid">
                 {player.hand.map((card) => (
-                  <Card card={card} />
+                  <Card card={card}
+                  playOn = {playOn} />
                 ))}
               </div>
             </div>
@@ -27,9 +28,9 @@ function PlayerList({ allPlayers, index}) {
   );
 }
 
-function Card({ card }) {
+function Card({ card, playOn }) {
 
-  if (card.face == 0){
+  if (card.face == 0 && playOn == true){
     return (
       <div className="display-card">
         <img

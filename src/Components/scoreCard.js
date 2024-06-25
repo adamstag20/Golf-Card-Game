@@ -8,8 +8,9 @@ function ScoreCard({ allPlayers }) {
         <div className="score-box">
           {allPlayers.map((player) => (
             <div className = 'score-details'> 
-            <text>Player {player.id + 1} </text>
-            <RoundDisplay rounds = {player.rounds}></RoundDisplay>
+              <text>Player {player.id + 1} </text>
+              <RoundDisplay rounds = {player.rounds}></RoundDisplay>
+              <h2>{player.total}</h2>
             </div>
           ))}
         </div>

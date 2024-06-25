@@ -169,9 +169,9 @@ function App() {
           setUpdateIndex={setUpdateIndex}
         />
       ) : (
-        <div></div>
+        <div>hi</div>
       )}
-      <PrepGamePop prepGame={prepGame} index={index} />
+      <PrepGamePop prepGame={prepGame} index={index} playOn = {playOn} />
       <div className="game-displays">
         <div className="card-grid">
           {playOn ? (
@@ -211,7 +211,8 @@ function App() {
           )}
         </div>
         <PlayerList allPlayers={allPlayers} 
-          index = {index}/>
+          index = {index}
+          playOn= {playOn}/>
         <ScoreCard allPlayers={allPlayers} />
       </div>
     </div>
