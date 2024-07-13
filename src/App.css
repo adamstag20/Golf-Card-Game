@@ -86,10 +86,30 @@ img:hover{
   border: 5px solid yellow;
 }
 
-h1 {
+h1, h3, h4{
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
 }
 
+h3,h4 {
+  white-space: wrap;
+  text-align: left;
+  position: relative;
+  padding-left: 150px;
+  padding-right: 150px;
+}
+
+.welcome-title {
+  background-color: rgb(77, 139, 77);
+  padding-top: 20px;
+  
+}
+.welcome-box {
+  background-color: rgb(77, 139, 77);
+  margin-top: 10px;
+  margin-right: 150px;
+  margin-left: 150px;
+  padding-bottom: 20px;
+}

@@ -1,4 +1,5 @@
 import "./App.css";
+import "./roundResult.css";
 import shuffleDeck from "./Backend/loadDeck";
 import {
   Player,
@@ -11,6 +12,7 @@ import SingleCard from "./Components/SingleCard";
 import PlayerList from "./Components/playerList";
 import ScoreCard from "./Components/scoreCard";
 import RoundResult from "./Components/roundResult";
+import WelcomePage from "./Components/welcomePage";
 import { grabTopCard } from "./Backend/manageGame";
 import { useState, useEffect } from "react";
 import PrepGamePop from "./Components/newGamePop";
@@ -169,9 +171,9 @@ function App() {
           setUpdateIndex={setUpdateIndex}
         />
       ) : (
-        <div>hi</div>
+        <WelcomePage></WelcomePage>
       )}
-      <PrepGamePop prepGame={prepGame} index={index} playOn = {playOn} />
+      <PrepGamePop prepGame={prepGame} index={index} playOn={playOn} />
       <div className="game-displays">
         <div className="card-grid">
           {playOn ? (
@@ -196,7 +198,7 @@ function App() {
               />
             ))
           ) : (
-            <div>
+            <div className="round-result-box">
               {allPlayers.map(({ hand, id }) => (
                 <RoundResult
                   setScore={setScore}
@@ -210,9 +212,7 @@ function App() {
             </div>
           )}
         </div>
-        <PlayerList allPlayers={allPlayers} 
-          index = {index}
-          playOn= {playOn}/>
+        <PlayerList allPlayers={allPlayers} index={index} playOn={playOn} />
         <ScoreCard allPlayers={allPlayers} />
       </div>
     </div>

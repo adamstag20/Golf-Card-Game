@@ -217,5 +217,15 @@ inside the player list. Working on roundResult formatting. Issue is that the nex
 not in this component and it isn't centered. Looks funky.
 
 Want to add the rules for the game and get this bad boy on a live link for resume.
+---------------------------------------------------------------------------------------------
+JULY 10 2024
+
+Fixed up roundResult alittle bit more. It is centered and incorporates the next round button.
+Doesn't look super pretty but organized enough.
+---------------------------------------------------------------------------------------------
+JULY 13 2024
+
+Added Game instructions to initial load in page. Want to add a New Game button at the bottom of
+the rules page. then need to remove log junk I have printing to console to tidy game up.
 
 

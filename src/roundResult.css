@@ -1,9 +1,19 @@
+.round-result-box {
+    background-color: rgb(77, 139, 77);
+    max-width: fit-content;
+    height: 130px;
+    margin-top: 20px;
+    margin-left: 40px;
+    margin-right: auto;
+}
+
 .round-box {
-    width: 300px;
-    height: auto;
+    width: 330px;
+    padding: 2px;
 }
 .round-score {
     font-family: "Montserrat", sans-serif;
     padding: 5px;
+    margin: auto;
     color: white;
 }
