@@ -22,10 +22,10 @@ function WelcomePage() {
         face down cards. To start the game each player will flip over two cards.{" "}
       </h3>
       <h3>
-        Then each person makes a move until all six cards are face up for one
-        player. All other players are allowed to make one more move until they
-        have to reveal any cards. Once all cards are flipped each player will
-        calculate their score for that round or "hole".
+        Then each player makes a move until all six cards are face up for one of the
+        players. All other players are allowed to make one more move until they
+        have to reveal all their cards. Once all cards are flipped each player's hand will
+        be calculated for their round or "hole" score.
       </h3>
       <h3>
         <strong>Cards are scored as...</strong>
@@ -37,12 +37,10 @@ function WelcomePage() {
         <strong>Kings:</strong> 0
       </h4>
       <h3>
-        You can cancel cards out if they are the same card type for example a
-        Jack matches a Jack or a 4 matches a 4. To cancel to zero the corners or
-        edges of matching cards have to be able to touch.{" "}
+        You can cancel cards out if they are the same card type and their edges or corners can touch. {" "}
       </h3>
       <h3><strong>Possible move options are:</strong>
-        <li>Flip one of your face down cards</li>
+        <li>Flip one of your face down cards.</li>
         <li>Draw a card from face down deck, either switch for a face up/face down card or discard.</li>
         <li>Draw from discard pile to switch with a face-up or face-down card.</li>
       </h3>
